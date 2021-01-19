@@ -1,0 +1,43 @@
+Clerigo {
+  nombre: 'Arod',
+  raza: 'Elfo',
+  vida: 150,
+  caracteristicas: { fuerza: 11, agilidad: 15, resistencia: 9, inteligencia: 18 },
+  experiencia: 0
+}
+Sufre 50 puntos de daño: Clerigo {
+  nombre: 'Arod',
+  raza: 'Elfo',
+  vida: 100,
+  caracteristicas: { fuerza: 11, agilidad: 15, resistencia: 9, inteligencia: 18 },
+  experiencia: 0
+}
+Después de curarse: Clerigo {
+  nombre: 'Arod',
+  raza: 'Elfo',
+  vida: 118,
+  caracteristicas: { fuerza: 11, agilidad: 15, resistencia: 9, inteligencia: 18 },
+  experiencia: 0
+}
+Guerrero Guerrero {
+  nombre: 'Casey',
+  raza: 'Humano',
+  vida: 180,
+  caracteristicas: { fuerza: 16, agilidad: 11, resistencia: 14, inteligencia: 9 },
+  experiencia: 0
+}
+Casey ha dado un mamporrazo de 16 puntos de fuerza
+Guerrero ha recibido 50 puntos de daño:  Guerrero {
+  nombre: 'Casey',
+  raza: 'Humano',
+  vida: 130,
+  caracteristicas: { fuerza: 16, agilidad: 11, resistencia: 14, inteligencia: 9 },
+  experiencia: 0
+}
+El Clérigo le ha curado:  Guerrero {
+  nombre: 'Casey',
+  raza: 'Humano',
+  vida: 148,
+  caracteristicas: { fuerza: 16, agilidad: 11, resistencia: 14, inteligencia: 9 },
+  experiencia: 0
+}
