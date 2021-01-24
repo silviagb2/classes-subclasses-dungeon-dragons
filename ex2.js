@@ -28,6 +28,18 @@
  *     
  */
 
+class Personaje {
+    constructor(nombre, raza, vida, caracteristicas, experiencia){
+        this.nombre = nombre
+        this.raza = raza
+        this.vida = vida
+        this.caracteristicas = caracteristicas
+        this.experiencia = 0
+    }
+    ataqueFisico(){
+        console.log("Hay un ataque físico")
+    }
+}
 let caracteristicas = {
     fuerza: 12,
     agilidad: 15,
@@ -35,17 +47,53 @@ let caracteristicas = {
     inteligencia: 17
 }
 
+class Clerigo extends Personaje{
+    constructor(nombre, raza, vida, caracteristicas) {
+        const caracteristicas_modificadas = {
+            fuerza: caracteristicas.fuerza - 1,
+            agilidad: caracteristicas.agilidad,
+            resistencia: caracteristicas.resistencia,
+            inteligencia: caracteristicas.inteligencia + 1
+        }
+        super(nombre, raza, vida, caracteristicas_modificadas)
+    }
+
+    curar(personaje){
+        if (!personaje){
+            this.vida += this.caracteristicas.inteligencia
+        }
+        else{
+            personaje.vida += this.caracteristicas.inteligencia
+        }
+    }
+}
+
+class Guerrero extends Personaje {
+    constructor(nombre, raza, vida, caracteristicas) {
+        const caracteristicas_modificadas = {
+            fuerza: caracteristicas.fuerza + 1,
+            agilidad: caracteristicas.agilidad,
+            resistencia: caracteristicas.resistencia,
+            inteligencia: caracteristicas.inteligencia - 1
+        }
+        super(nombre, raza, vida, caracteristicas_modificadas)
+    }
+    mamporro(){
+        console.log(this.nombre + " ha dado un mamporrazo de "+ this.caracteristicas.fuerza + " puntos de fuerza")
+    }
+}
+
 // 1. Crear Clerigo
 let personaje = new Clerigo('Arod', 'Elfo', 150, caracteristicas)
 console.log(personaje)
 
-// 2. Simulamos que sufre daño y se cura
+// // 2. Simulamos que sufre daño y se cura
 personaje.vida -= 50
 console.log("Sufre 50 puntos de daño:", personaje)
 personaje.curar()
 console.log("Después de curarse:", personaje)
 
-// 3. Creamos ahora un guerrero
+// // 3. Creamos ahora un guerrero
 let stats_warrior = {
     fuerza: 15,
     agilidad: 11,
@@ -56,14 +104,14 @@ let stats_warrior = {
 let guerrero = new Guerrero('Casey', 'Humano', 180, stats_warrior)
 console.log("Guerrero", guerrero)
 
-// 4. Casey da un mamporrazo a un supuesto enemigo
+// // 4. Casey da un mamporrazo a un supuesto enemigo
 guerrero.mamporro()
 
-// 5. Casey recibe daño y el clérigo le cura
+// // 5. Casey recibe daño y el clérigo le cura
 guerrero.vida -= 50
 console.log("Guerrero ha recibido 50 puntos de daño: ", guerrero)
 personaje.curar(guerrero)
 console.log("El Clérigo le ha curado: ", guerrero)
 
-//6. Este método debería dar un error al invocarlo, pues los clérigos no pueden dar mamporros
+// //6. Este método debería dar un error al invocarlo, pues los clérigos no pueden dar mamporros
  personaje.mamporro()

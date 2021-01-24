@@ -25,8 +25,18 @@
 
 
 class Personaje {
-
+    constructor(nombre, raza, vida, caracteristicas, experiencia){
+        this.nombre = nombre
+        this.raza = raza
+        this.vida = vida
+        this.caracteristicas = caracteristicas
+        this.experiencia = 0
+    }
+    ataqueFisico(){
+        console.log("Hay un ataque físico")
+    }
 }
+
 
 let caracteristicas = {
     fuerza: 12,
@@ -35,4 +45,5 @@ let caracteristicas = {
     inteligencia: 17
 }
 let personajeGenerico = new Personaje('Arod', 'Elfo', 150, caracteristicas)
+console.log(personajeGenerico)
 console.log(caracteristicas)
